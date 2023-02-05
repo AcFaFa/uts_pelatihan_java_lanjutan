@@ -10,6 +10,12 @@ import com.ngebut.ngebutcrud.dto.mataPelajaranDto;
 import com.ngebut.ngebutcrud.model.mataPelajaran;
 import com.ngebut.ngebutcrud.repository.mataPelajaranRepository;
 import com.ngebut.ngebutcrud.repository.guruRepository;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/mataPelajaran")
 public class mataPelajaranController {
@@ -60,4 +66,15 @@ public class mataPelajaranController {
 //        mataPelajaranRepository.delete(mata);
 //        return null;
 //    }
+    @GetMapping("/find-all-kelas-mata-pelajaran")
+    public List<Map<String, Object>> findAllKelasMataPelajaran() {
+        List<Map<String, Object>> kelasMataPelajarans = new ArrayList<>();
+        mataPelajaranRepository.findAll().forEach(mataPelajaran -> {
+            Map<String, Object> kelasMataPelajaran = new HashMap<>();
+            kelasMataPelajaran.put("mata pelajaran", mataPelajaran);
+            kelasMataPelajaran.put("kelas", mataPelajaran.getPengajar());
+            kelasMataPelajarans.add(kelasMataPelajaran);
+        });
+        return kelasMataPelajarans;
+    }
 }

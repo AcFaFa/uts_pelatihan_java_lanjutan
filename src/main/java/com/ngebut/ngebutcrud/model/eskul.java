@@ -20,13 +20,13 @@ public class eskul {
     @Column(length = 100,nullable = false)
     private String nama;
 
-//    @JsonIgnore
-//    @ManyToMany(cascade = {CascadeType.ALL})
-//    @JoinTable(
-//            name="eskul_siswa",
-//            joinColumns = {@JoinColumn(name = "id_eskul")},
-//            inverseJoinColumns = {@JoinColumn(name="id_siswa")}
-//    )
-//    private Set<siswa> siswaSet=new HashSet<>();
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name="eskul_siswa",
+            joinColumns = {@JoinColumn(name = "id_eskul")},
+            inverseJoinColumns = {@JoinColumn(name="id_siswa")}
+    )
+    private Set<siswa> siswaSet=new HashSet<>();
 
 }

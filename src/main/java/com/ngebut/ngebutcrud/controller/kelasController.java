@@ -8,7 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.ngebut.ngebutcrud.repository.kelasRepository;
 import com.ngebut.ngebutcrud.model.kelas;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import com.ngebut.ngebutcrud.dto.kelasDto;
 @RestController
 @RequestMapping("/kelas")
@@ -68,4 +73,15 @@ public class kelasController {
 //        kelasRepository.delete(kes);
 //        return null;
 //    }
+    @GetMapping("/find-all-kelas-mata-pelajaran")
+    public List<Map<String, Object>> findAllKelasMataPelajaran() {
+        List<Map<String, Object>> kelasMataPelajarans = new ArrayList<>();
+        kelasRepository.findAll().forEach(kelas -> {
+            Map<String, Object> kelasMataPelajaran = new HashMap<>();
+            kelasMataPelajaran.put("kelas", kelas);
+            kelasMataPelajaran.put("mata pelajaran", kelas.getWali());
+            kelasMataPelajarans.add(kelasMataPelajaran);
+        });
+        return kelasMataPelajarans;
+    }
 }

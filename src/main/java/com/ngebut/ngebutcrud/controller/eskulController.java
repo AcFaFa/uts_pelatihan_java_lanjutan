@@ -8,6 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.ngebut.ngebutcrud.dto.eskulDto;
 import com.ngebut.ngebutcrud.model.eskul;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/eskul")
 public class eskulController {
@@ -46,4 +52,15 @@ public class eskulController {
 //        eskulRepository.delete(Eskul);
 //        return null;
 //    }
+    @GetMapping("/find-all-eskul-siswa")
+    public List<Map<String, Object>> findAllEskulSiswa() {
+        List<Map<String, Object>> eskulSiswas = new ArrayList<>();
+        eskulRepository.findAll().forEach(eskul -> {
+            Map<String, Object> eskulSiswa = new HashMap<>();
+            eskulSiswa.put("eskul", eskul);
+            eskulSiswa.put("siswa", eskul.getSiswaSet());
+            eskulSiswas.add(eskulSiswa);
+        });
+        return eskulSiswas;
+    }
 }

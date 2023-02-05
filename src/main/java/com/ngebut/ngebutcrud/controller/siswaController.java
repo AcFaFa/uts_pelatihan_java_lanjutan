@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import com.ngebut.ngebutcrud.repository.siswaRepository;
 import com.ngebut.ngebutcrud.repository.kelasRepository;
 import com.ngebut.ngebutcrud.model.siswa;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import com.ngebut.ngebutcrud.dto.siswaDto;
 import com.ngebut.ngebutcrud.model.siswa;
 @RestController
@@ -80,5 +85,15 @@ public class siswaController {
 
         siswaRepository.delete(sis);
         return null;
+    }
+    @GetMapping("/find-all-eskul-siswa")
+    public List<Map<String, Object>> findAllEskulSiswa() {
+        List<Map<String, Object>> eskulSiswas = new ArrayList<>();
+        siswaRepository.findAll().forEach(siswa -> {
+            Map<String, Object> eskulSiswa = new HashMap<>();
+            eskulSiswa.put("siswa", siswa);
+            eskulSiswas.add(eskulSiswa);
+        });
+        return eskulSiswas;
     }
 }

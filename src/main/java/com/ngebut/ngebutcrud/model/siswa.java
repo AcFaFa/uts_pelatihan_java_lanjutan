@@ -32,11 +32,11 @@ public class siswa {
     @JoinColumn(name="id_kelas")
     kelas kes;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "id_kelas",referencedColumnName = "id")
-//    private kelas kelas;
-//
-//    @ManyToMany(mappedBy = "siswaSet")
-//    private Set<eskul> eskulSet = new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_kelas",referencedColumnName = "id")
+    private kelas kelas;
+
+    @ManyToMany(mappedBy = "siswaSet")
+    private Set<eskul> eskulSet = new HashSet<>();
 
 }
