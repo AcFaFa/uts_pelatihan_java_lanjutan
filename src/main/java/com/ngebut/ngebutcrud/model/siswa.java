@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Getter
@@ -29,4 +31,12 @@ public class siswa {
     @ManyToOne
     @JoinColumn(name="id_kelas")
     kelas kes;
+
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "id_kelas",referencedColumnName = "id")
+//    private kelas kelas;
+//
+//    @ManyToMany(mappedBy = "siswaSet")
+//    private Set<eskul> eskulSet = new HashSet<>();
+
 }
