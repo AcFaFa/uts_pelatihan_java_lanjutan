@@ -58,14 +58,14 @@ public class kelasController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
-        kelas kes = kelasRepository.findById(id).orElse(null);
-        if (kes == null) {
-            return ResponseEntity.badRequest().body("id tidak tersedia");
-        }
-
-        kelasRepository.delete(kes);
-        return null;
-    }
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
+//        kelas kes = kelasRepository.findById(id).orElse(null);
+//        if (kes == null) {
+//            return ResponseEntity.badRequest().body("id tidak tersedia");
+//        }
+//
+//        kelasRepository.delete(kes);
+//        return null;
+//    }
 }

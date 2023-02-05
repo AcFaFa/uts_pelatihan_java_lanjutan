@@ -36,14 +36,14 @@ public class guruController {
         return  ResponseEntity.ok(guruRepository.save(Guru));
     }
 
-    @DeleteMapping("/{id}")
-    public Object delete(@PathVariable("id") Integer id) {
-        guru Guru = guruRepository.findById(id).orElse(null);
-        if (Guru == null) {
-            return ResponseEntity.badRequest().body("id tidak tersedia");
-        }
-
-        guruRepository.delete(Guru);
-        return null;
-    }
+//    @DeleteMapping("/{id}")
+//    public Object delete(@PathVariable("id") Integer id) {
+//        guru Guru = guruRepository.findById(id).orElse(null);
+//        if (Guru == null) {
+//            return ResponseEntity.badRequest().body("id tidak tersedia");
+//        }
+//
+//        guruRepository.delete(Guru);
+//        return null;
+//    }
 }

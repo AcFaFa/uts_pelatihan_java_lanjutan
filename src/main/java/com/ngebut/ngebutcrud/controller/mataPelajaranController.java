@@ -50,14 +50,14 @@ public class mataPelajaranController {
         return  ResponseEntity.ok(mataPelajaranRepository.save(mata));
     }
 
-    @DeleteMapping("/{id}")
-    public Object delete(@PathVariable("id") Integer id) {
-        mataPelajaran mata = mataPelajaranRepository.findById(id).orElse(null);
-        if (mata == null) {
-            return ResponseEntity.badRequest().body("id tidak tersedia");
-        }
-
-        mataPelajaranRepository.delete(mata);
-        return null;
-    }
+//    @DeleteMapping("/{id}")
+//    public Object delete(@PathVariable("id") Integer id) {
+//        mataPelajaran mata = mataPelajaranRepository.findById(id).orElse(null);
+//        if (mata == null) {
+//            return ResponseEntity.badRequest().body("id tidak tersedia");
+//        }
+//
+//        mataPelajaranRepository.delete(mata);
+//        return null;
+//    }
 }

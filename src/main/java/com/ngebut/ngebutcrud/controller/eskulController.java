@@ -36,14 +36,14 @@ public class eskulController {
         return  ResponseEntity.ok(eskulRepository.save(Eskul));
     }
 
-    @DeleteMapping("/{id}")
-    public Object delete(@PathVariable("id") Integer id) {
-        eskul Eskul = eskulRepository.findById(id).orElse(null);
-        if (Eskul == null) {
-            return ResponseEntity.badRequest().body("id tidak tersedia");
-        }
-
-        eskulRepository.delete(Eskul);
-        return null;
-    }
+//    @DeleteMapping("/{id}")
+//    public Object delete(@PathVariable("id") Integer id) {
+//        eskul Eskul = eskulRepository.findById(id).orElse(null);
+//        if (Eskul == null) {
+//            return ResponseEntity.badRequest().body("id tidak tersedia");
+//        }
+//
+//        eskulRepository.delete(Eskul);
+//        return null;
+//    }
 }
